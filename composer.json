@@ -19,7 +19,7 @@
             "url": "https://github.com/daniel-morris/bijective"
         }
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "require": {
         "php": ">=5.4.0"
     },
