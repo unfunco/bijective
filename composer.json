@@ -25,7 +25,6 @@
     },
     "require-dev": {
         "phpunit/phpunit": ">=3.7.0",
-        "theseer/autoload": "*",
         "squizlabs/php_codesniffer": "*"
     },
     "autoload": {
