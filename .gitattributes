@@ -1,6 +1,9 @@
+.gitattributes export-ignore
+.gitignore export-ignore
 bijective.sublime-project export-ignore
 build export-ignore
 build.xml export-ignore
+composer.json export-ignore
 phpunit.xml export-ignore
 src/autoload.php export-ignore
 test export-ignore
