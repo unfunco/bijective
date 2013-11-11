@@ -1,6 +1,6 @@
 {
     "name": "honest/bijective",
-    "description": "Bijective is a class that can compute an exact pairing of strings and integers. Every integer can be mapped to a string, and every string can be mapped back to an integer, with no unpaired elements.",
+    "description": "Bijective is a class that can compute pairings between alphanumeric strings, and integers. Every integer can be mapped to an alphanumeric string, and every alphanumeric string can be mapped back to an integer with no unpaired permutations.",
     "type": "Library",
     "homepage": "https://github.com/daniel-morris/bijective",
     "keywords": ["bijective", "bijection"],
@@ -19,7 +19,7 @@
             "url": "https://github.com/daniel-morris/bijective"
         }
     ],
-    "version": "1.0.4",
+    "version": "1.0.5",
     "require": {
         "php": ">=5.3.0"
     },

@@ -24,7 +24,7 @@ Here is a little usage example:
 use Honest\Bijective\Bijective;
 
 $encoded = Bijective::encode(987656789);
-echo $encoded, PHP_EOL;
+echo $encoded, PHP_EOL; // be0gOn
 $decoded = Bijective::decode($encoded);
-echo $decoded, PHP_EOL;
+echo $decoded, PHP_EOL; // 987656789
 ```
