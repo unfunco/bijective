@@ -29,92 +29,95 @@
  * @link      https://github.com/honestempire/bijective
  */
 
-namespace Honest\Bijective;
-
-/**
- * Perform an exact pairing between integers and strings using bijection, every
- * integer can be paired with exactly one string and vice-versa using the
- * <code>Bijective::encode()</code> and <code>Bijective::decode()</code> methods made
- * available in this class with zero unpaired elements. Practical applications for
- * this class unique mapping of database rows based on automatically incrementing
- * primary keys, which in turn can be used to create URL shorteners.
- *
- * @category  Bijection
- * @package   Bijective
- * @author    Daniel Morris <daniel@honestempire.com>
- * @copyright 2013 Honest Empire Ltd
- * @license   MIT License
- * @link      https://github.com/daniel-morris/bijective
- */
-class Bijective
+namespace Honest\Bijective
 {
 
     /**
-     * @static
-     * @access private
+     * Perform an exact pairing between integers and strings using bijection, every
+     * integer can be paired with exactly one string and vice-versa using the
+     * <code>Bijective::encode()</code> and <code>Bijective::decode()</code> methods
+     * made available in this class with zero unpaired elements. Practical
+     * applications for this class unique mapping of database rows based on
+     * automatically incrementing primary keys, which in turn can be used to create
+     * URL shorteners.
+     *
+     * @category  Bijection
+     * @package   Bijective
+     * @author    Daniel Morris <daniel@honestempire.com>
+     * @copyright 2013 Honest Empire Ltd
+     * @license   MIT License
+     * @link      https://github.com/daniel-morris/bijective
      */
-    static private $_chars = array(
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
-        'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
-        'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D',
-        'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
-        'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
-        'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7',
-        '8', '9',
-    );
-
-    /**
-     * Encode an integer into the corresponding bijective string
-     *
-     * Given an integer, this method computes the corresponding string bijective.
-     * It is expected that <code>$_chars</code> will remain unchanged by persons
-     * using this class, and therefore the length of <code>$_chars</code> has been
-     * hardcoded in this method to avoid an additional function call to compute the
-     * size of the <code>$_chars</code> array.
-     *
-     * @param integer $number The number to encode
-     *
-     * @static
-     * @return string The encoded bijective
-     * @author Daniel Morris <daniel@honestempire.com>
-     * @access public
-     */
-    static public function encode($number)
+    class Bijective
     {
-        $encoded = '';
-        do {
-            $modulus = $number % 62;
-            $encoded = self::$_chars[$modulus].$encoded;
-            $number = ($number - $modulus) / 62;
-        } while ($number > 0);
-        return $encoded;
-    }
 
-    /**
-     * Decode a bijective string into the corresponding integer
-     *
-     * Given an encoded bijective string, this method will compute the corresponding
-     * integer. It is expected that <code>$_chars</code> will remain unchanged by
-     * persons using this class, and therefore the length of <code>$_chars</code> has
-     * been hardcoded in this method to avoid an additional function call to compute
-     * the size of the <code>$_chars</code> array.
-     *
-     * @param string $encoded The encoded bijective
-     *
-     * @static
-     * @return integer The decoded bijective
-     * @author Daniel Morris <daniel@honestempire.com>
-     * @access public
-     */
-    static public function decode($encoded)
-    {
-        $length = strlen($encoded);
-        $decoded = 0;
-        $chars = array_flip(self::$_chars);
-        for ($i = 0; $i < $length; ++$i) {
-            $decoded += ($chars[$encoded{$i}] * pow(62, $length - $i - 1));
+        /**
+         * @static
+         * @access private
+         */
+        static private $_chars = array(
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+            'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B',
+            'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+            'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3',
+            '4', '5', '6', '7', '8', '9',
+        );
+
+        /**
+         * Encode an integer into the corresponding bijective string
+         *
+         * Given an integer, this method computes the corresponding string bijective.
+         * It is expected that <code>$_chars</code> will remain unchanged by persons
+         * using this class, and therefore the length of <code>$_chars</code> has
+         * been hardcoded in this method to avoid an additional function call to
+         * compute the size of the <code>$_chars</code> array.
+         *
+         * @param integer $number The number to encode
+         *
+         * @static
+         * @return string The encoded bijective
+         * @author Daniel Morris <daniel@honestempire.com>
+         * @access public
+         */
+        static public function encode($number)
+        {
+            $encoded = '';
+            do {
+                $modulus = $number % 62;
+                $encoded = self::$_chars[$modulus].$encoded;
+                $number = ($number - $modulus) / 62;
+            } while ($number > 0);
+            return $encoded;
         }
-        return $decoded;
+
+        /**
+         * Decode a bijective string into the corresponding integer
+         *
+         * Given an encoded bijective string, this method will compute the
+         * corresponding integer. It is expected that <code>$_chars</code> will
+         * remain unchanged by persons using this class, and therefore the length of
+         * <code>$_chars</code> has been hardcoded in this method to avoid an
+         * additional function call to compute the size of the <code>$_chars</code>
+         * array.
+         *
+         * @param string $encoded The encoded bijective
+         *
+         * @static
+         * @return integer The decoded bijective
+         * @author Daniel Morris <daniel@honestempire.com>
+         * @access public
+         */
+        static public function decode($encoded)
+        {
+            $length = strlen($encoded);
+            $decoded = 0;
+            $chars = array_flip(self::$_chars);
+            for ($i = 0; $i < $length; ++$i) {
+                $decoded += ($chars[$encoded{$i}] * pow(62, $length - $i - 1));
+            }
+            return $decoded;
+        }
+
     }
 
 }
