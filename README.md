@@ -9,16 +9,20 @@ alphanumeric string can be mapped back to an integer with no unpaired permutatio
 ## Installation
 
 The recommended way to install Bijective is to use
-[Composer](http://getcomposer.org/). Add `"honest/bijective": "1.0.*"` to the
-`require` section of your composer.json file and run `composer install` to fetch the
-package from [Packagist](https://packagist.org/packages/honest/bijective).
+[Composer](http://getcomposer.org/).
 
-## Usage
+```bash
+composer init --require=honest\bijective:1.0.* -n
+composer install
+```
+
+## Usage example
 
 If you have installed Bijective using Composer, you can start using the class
-anywhere in your project provided that the Composer autoloader has been registered.
-Here is a little usage example:
+anywhere in your project provided that the Composer autoloader `vendor/autoload.php`
+has been registered.
 
+Here is a little usage example:
 
 ```php
 use Honest\Bijective\Bijective;
