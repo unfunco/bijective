@@ -12,7 +12,7 @@ The recommended way to install Bijective is to use
 [Composer](http://getcomposer.org/).
 
 ```bash
-composer init --require=honest\bijective:1.0.* -n
+composer init --require=honest/bijective:1.0.* -n
 composer install
 ```
 
