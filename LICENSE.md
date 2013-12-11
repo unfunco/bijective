@@ -1,6 +1,6 @@
 # License
 
-Copyright © 2013 Honest Empire Ltd
+Copyright © 2013 – 2014 Honest Empire Ltd
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this
 software and associated documentation files (the "Software"), to deal in the Software

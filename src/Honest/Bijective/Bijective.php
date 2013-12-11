@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013 Honest Empire Ltd
+ * Copyright © 2013 – 2014 Honest Empire Ltd
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in the
@@ -24,7 +24,7 @@
  * @category  Bijection
  * @package   Bijective
  * @author    Daniel Morris <daniel@honestempire.com>
- * @copyright 2013 Honest Empire Ltd
+ * @copyright 2013 – 2014 Honest Empire Ltd
  * @license   MIT License
  * @link      https://github.com/honestempire/bijective
  */
@@ -44,7 +44,7 @@ namespace Honest\Bijective
      * @category  Bijection
      * @package   Bijective
      * @author    Daniel Morris <daniel@honestempire.com>
-     * @copyright 2013 Honest Empire Ltd
+     * @copyright 2013 – 2014 Honest Empire Ltd
      * @license   MIT License
      * @link      https://github.com/daniel-morris/bijective
      */
