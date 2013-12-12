@@ -46,7 +46,7 @@ namespace Honest\Bijective
      * @author    Daniel Morris <daniel@honestempire.com>
      * @copyright 2013 – 2014 Honest Empire Ltd
      * @license   MIT License
-     * @link      https://github.com/daniel-morris/bijective
+     * @link      https://github.com/honestempire/bijective
      */
     class Bijective
     {
