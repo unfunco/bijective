@@ -2,7 +2,7 @@
     "name": "honest/bijective",
     "description": "Bijective is a class that can compute pairings between alphanumeric strings, and integers. Every integer can be mapped to an alphanumeric string, and every alphanumeric string can be mapped back to an integer with no unpaired permutations.",
     "type": "Library",
-    "homepage": "https://github.com/daniel-morris/bijective",
+    "homepage": "https://github.com/honestempire/bijective",
     "keywords": ["bijective", "bijection"],
     "license": "MIT",
     "authors": [
@@ -16,7 +16,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/daniel-morris/bijective"
+            "url": "https://github.com/honestempire/bijective"
         }
     ],
     "version": "1.0.7",
