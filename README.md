@@ -1,6 +1,6 @@
 # Bijective
 
-[![Build Status](https://secure.travis-ci.org/daniel-morris/bijective.png?branch=master)](http://travis-ci.org/daniel-morris/bijective)
+[![Build Status](https://secure.travis-ci.org/honestempire/bijective.png?branch=master)](http://travis-ci.org/honestempire/bijective)
 
 Bijective is a class that can compute pairings between alphanumeric strings, and
 integers. Every integer can be mapped to an alphanumeric string, and every
