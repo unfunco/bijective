@@ -1,11 +1,13 @@
 language: php
 
 php:
+  - hhvm
   - 5.3
   - 5.4
   - 5.5
 
 before_script:
+  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - composer install --dev --prefer-source
 
 script: ./vendor/bin/phpunit
