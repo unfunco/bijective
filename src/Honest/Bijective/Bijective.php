@@ -113,7 +113,7 @@ namespace Honest\Bijective
             $decoded = 0;
             $chars = array_flip(self::$_chars);
             for ($i = 0; $i < $length; ++$i) {
-                $decoded += ($chars[$encoded{$i}] * pow(62, $length - $i - 1));
+                $decoded += $chars[$encoded{$i}] * pow(62, $length - $i - 1);
             }
             return $decoded;
         }
