@@ -109,11 +109,11 @@ namespace Honest\Bijective
          */
         static public function decode($encoded)
         {
-            $length = strlen($encoded);
             $decoded = 0;
             $chars = array_flip(self::$_chars);
-            for ($i = 0; $i < $length; ++$i) {
-                $decoded += $chars[$encoded{$i}] * pow(62, $length - $i - 1);
+            for ($i = $length = strlen($encoded); $i--;) {
+                $decoded = $chars[$encoded{$i}] * pow(62, $length - $i - 1)
+                    + $decoded;
             }
             return $decoded;
         }
