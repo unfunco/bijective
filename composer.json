@@ -19,7 +19,7 @@
             "url": "https://github.com/honestempire/bijective"
         }
     ],
-    "version": "1.0.8",
+    "version": "1.0.9",
     "require": {
         "php": ">=5.3.3"
     },
