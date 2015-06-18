@@ -26,14 +26,17 @@
  * PHP version 5.6+
  */
 
-namespace Honest\Bijective;
+namespace Honest\Bijective\Tests;
+
+use Honest\Bijective\Bijective;
 
 /**
- * Bijective
+ * Tests the bijective class
  *
- * @package Honest\Bijective
- * @author  Daniel Morris <daniel@honestempire.com>
+ * @package    Honest\Bijective
+ * @subpackage Tests
+ * @author     Daniel Morris <daniel@honestempire.com>
  */
-class Bijective
+class BijectiveTest extends \PHPUnit_Framework_TestCase
 {
 }
