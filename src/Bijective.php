@@ -23,10 +23,10 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  *
- * PHP version 5.6+
+ * PHP version 7.0+
  */
 
-namespace Honest\Bijective;
+declare(strict_types=1);
 
 /**
  * Bijective
@@ -34,6 +34,29 @@ namespace Honest\Bijective;
  * @package Honest\Bijective
  * @author  Daniel Morris <daniel@honestempire.com>
  */
-class Bijective
+namespace Honest\Bijective
 {
+    /**
+     * @var array
+     */
+    const CHARS = [];
+
+    /**
+     *
+     * @param int $decoded The number to encode
+     *
+     * @return string
+     */
+    function bijective_encode(int $decoded): string
+    {
+    }
+
+    /**
+     * @param string $encoded The string to decode
+     *
+     * @return string
+     */
+    function bijective_decode(string $encoded): int
+    {
+    }
 }

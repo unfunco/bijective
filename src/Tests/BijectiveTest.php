@@ -23,12 +23,13 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  *
- * PHP version 5.6+
+ * PHP version 7.0+
  */
 
 namespace Honest\Bijective\Tests;
 
-use Honest\Bijective\Bijective;
+use function Honest\Bijective\bijective_encode,
+             Honest\Bijective\bijective_decode;
 
 /**
  * Tests the bijective class
@@ -39,4 +40,19 @@ use Honest\Bijective\Bijective;
  */
 class BijectiveTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     *
+     *
+     */
+    public function testBijectiveEncode()
+    {
+    }
+
+    /**
+     *
+     *
+     */
+    public function testBijectiveDecode()
+    {
+    }
 }
