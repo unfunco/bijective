@@ -54,7 +54,7 @@ namespace Honest\Bijective
     /**
      * @param string $encoded The string to decode
      *
-     * @return string
+     * @return int
      */
     function bijective_decode(string $encoded): int
     {
