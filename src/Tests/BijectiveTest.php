@@ -32,7 +32,7 @@ use function Honest\Bijective\bijective_encode,
              Honest\Bijective\bijective_decode;
 
 /**
- * Tests the bijective class
+ * Tests the bijective functions
  *
  * @package    Honest\Bijective
  * @subpackage Tests
@@ -41,18 +41,46 @@ use function Honest\Bijective\bijective_encode,
 class BijectiveTest extends \PHPUnit_Framework_TestCase
 {
     /**
+     * Tests the <code>Honest\Bijective\bijective_encode</code> function
      *
+     * @dataProvider bijectionSetProvider
      *
+     * @return void
      */
-    public function testBijectiveEncode()
+    public function testBijectiveEncode($input, $expected)
     {
+        $this->assertEquals($expected, bijective_encode($input));
     }
 
     /**
+     * Tests the <code>Honest\Bijective\bijective_decode</code> function
      *
+     * @dataProvider bijectionSetProvider
      *
+     * @return void
      */
-    public function testBijectiveDecode()
+    public function testBijectiveDecode($expected, $input)
     {
+        $this->assertEquals($expected, bijective_decode($input));
+    }
+
+    /**
+     * Returns an array of mappings between integers and strings
+     *
+     * @return array
+     */
+    public function bijectionSetProvider()
+    {
+        return [
+            [0,        'a'],
+            [1,        'b'],
+            [10,       'k'],
+            [100,      'bM'],
+            [1000,     'qi'],
+            [10000,    'cLs'],
+            [100000,   'Aa4'],
+            [1000000,  'emjc'],
+            [10000000, 'P7Cu'],
+        ];
     }
 }

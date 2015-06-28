@@ -31,32 +31,63 @@ declare(strict_types=1);
 /**
  * Bijective
  *
+ * Functions for creating a one-to-one mapping between integers and strings.
+ *
  * @package Honest\Bijective
  * @author  Daniel Morris <daniel@honestempire.com>
  */
 namespace Honest\Bijective
 {
     /**
+     * Array of elements used for encoding and decoding
+     *
      * @var array
      */
-    const CHARS = [];
+    const ELEMENTS = [
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+        'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B',
+        'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+        'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3',
+        '4', '5', '6', '7', '8', '9',
+    ];
 
     /**
+     * Encodes an integer into a corresponding string
      *
-     * @param int $decoded The number to encode
+     * @param int $input The number to encode
      *
      * @return string
      */
-    function bijective_encode(int $decoded): string
+    function bijective_encode(int $input): string
     {
+        $encoded = '';
+
+        do {
+            $modulus = $input % 62;
+            $encoded = ELEMENTS[$modulus].$encoded;
+
+            $input = ($input - $modulus) / 62;
+        } while ($input > 0);
+
+        return $encoded;
     }
 
     /**
-     * @param string $encoded The string to decode
+     * Decodes a string into a corresponding integer
+     *
+     * @param string $input The string to decode
      *
      * @return int
      */
-    function bijective_decode(string $encoded): int
+    function bijective_decode(string $input): int
     {
+        $decoded = 0;
+        $elements = array_flip(ELEMENTS);
+
+        for ($i = $length = strlen($input); $i--;) {
+            $decoded = $elements[$input{$i}] * 62 ** ($length - $i - 1) + $decoded;
+        }
+
+        return $decoded;
     }
 }
