@@ -3,33 +3,29 @@
 [![Build Status](https://secure.travis-ci.org/honestempire/bijective.png?branch=master)](http://travis-ci.org/honestempire/bijective)
 [![Code Climate](https://codeclimate.com/github/honestempire/bijective.png)](https://codeclimate.com/github/honestempire/bijective)
 
-Bijective is a class that can compute pairings between alphanumeric strings, and
-integers. Every integer can be mapped to an alphanumeric string, and every
-alphanumeric string can be mapped back to an integer with no unpaired permutations.
+Bijective is a library that can compute pairings between alphanumeric strings,
+and integers. Every integer can be mapped to an alphanumeric string, and every
+alphanumeric string can be mapped back to an integer with zero unpaired
+permutations.
 
-## Installation
+## License
 
-The recommended way to install Bijective is to use
-[Composer](http://getcomposer.org/).
+### The MIT License
 
-```bash
-composer init --require=honest/bijective:1.0.* -n
-composer install
-```
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## Usage example
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-If you have installed Bijective using Composer, you can start using the class
-anywhere in your project provided that the Composer autoloader `vendor/autoload.php`
-has been registered.
-
-Here is a little usage example:
-
-```php
-use Honest\Bijective\Bijective;
-
-$encoded = Bijective::encode(987656789);
-echo $encoded, PHP_EOL; // be0gOn
-$decoded = Bijective::decode($encoded);
-echo $decoded, PHP_EOL; // 987656789
-```
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

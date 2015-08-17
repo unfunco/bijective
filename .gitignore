@@ -1,4 +1,1 @@
-bijective.sublime-workspace
-build/coverage/*
-!build/coverage/.gitkeep
-cache.properties
+/vendor/

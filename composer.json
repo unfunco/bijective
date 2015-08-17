@@ -9,8 +9,8 @@
         {
             "name": "Daniel Morris",
             "email": "daniel@honestempire.com",
-            "homepage": "https://github.com/daniel-morris",
-            "role": "Developer"
+            "homepage": "https://github.com/unfunco",
+            "role": "Programmer"
         }
     ],
     "repositories": [
@@ -19,19 +19,14 @@
             "url": "https://github.com/honestempire/bijective"
         }
     ],
-    "version": "1.0.9",
+    "version": "2.0.0",
     "require": {
-        "php": ">=5.3.3"
+        "php": ">=7.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": ">=4.0",
-        "squizlabs/php_codesniffer": "*",
-        "theseer/autoload": "*",
-        "zetacomponents/console-tools": "dev-master"
+        "phpunit/phpunit": ">=4.7"
     },
     "autoload": {
-        "psr-0": {
-            "Honest": "src"
-        }
+        "files": ["src/bijective.php"]
     }
 }
