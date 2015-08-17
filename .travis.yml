@@ -6,6 +6,6 @@ php:
 
 before_script:
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-  - composer install --dev --prefer-source
+  - composer install --dev --prefer-source --ignore-platform-reqs
 
 script: ./vendor/bin/phpunit
