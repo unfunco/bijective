@@ -3,7 +3,7 @@
 /*
  * Bijective
  *
- * Copyright © 2013 – 2015 Honest Empire Ltd
+ * Copyright © 2013 – 2016 Honest Empire Ltd
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"),
@@ -26,11 +26,9 @@
  * PHP version 7.0+
  */
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 /**
- * Bijective
- *
  * Functions for creating a one-to-one mapping between integers and strings.
  *
  * @package Honest\Bijective
@@ -39,7 +37,7 @@ declare(strict_types=1);
 namespace Honest\Bijective
 {
     /**
-     * Array of elements used for encoding and decoding
+     * Array of elements used for encoding and decoding.
      *
      * @var array
      */
@@ -52,9 +50,9 @@ namespace Honest\Bijective
     ];
 
     /**
-     * Encodes an integer into a corresponding string
+     * Encodes an integer into a corresponding string.
      *
-     * @param int $input The number to encode
+     * @param int $input The integer to encode.
      *
      * @return string
      */
@@ -64,7 +62,7 @@ namespace Honest\Bijective
 
         do {
             $modulus = $input % 62;
-            $encoded = ELEMENTS[$modulus].$encoded;
+            $encoded = ELEMENTS[$modulus] . $encoded;
 
             $input = ($input - $modulus) / 62;
         } while ($input > 0);
@@ -73,9 +71,9 @@ namespace Honest\Bijective
     }
 
     /**
-     * Decodes a string into a corresponding integer
+     * Decodes a string into a corresponding integer.
      *
-     * @param string $input The string to decode
+     * @param string $input The string to decode.
      *
      * @return int
      */
