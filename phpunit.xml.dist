@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.7/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/5.1/phpunit.xsd"
          backupGlobals="false"
          colors="true"
          convertErrorsToExceptions="true"
          bootstrap="vendor/autoload.php">
     <testsuites>
         <testsuite name="honest/bijective">
-            <directory suffix="Test.php">src/Tests</directory>
+            <directory suffix="Test.php">src/Test</directory>
         </testsuite>
     </testsuites>
 
@@ -15,7 +15,7 @@
         <whitelist>
             <directory suffix=".php">src</directory>
             <exclude>
-                <directory>src/Tests</directory>
+                <directory>src/Test</directory>
             </exclude>
         </whitelist>
     </filter>
