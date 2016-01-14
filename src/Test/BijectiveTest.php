@@ -28,8 +28,10 @@
 
 namespace Honest\Bijective\Test;
 
-use function Honest\Bijective\bijective_encode,
-             Honest\Bijective\bijective_decode;
+use function Honest\Bijective\{
+    bijective_encode,
+    bijective_decode
+};
 
 /**
  * Tests the bijection functions.
