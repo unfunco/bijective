@@ -5,6 +5,8 @@ Test the bijective_decode function
 --FILE--
 <?php
 
+use function Honest\Bijective\bijective_decode;
+
 $bijections = [
   0        => 'a',
   1        => 'b',
