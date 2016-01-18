@@ -24,6 +24,6 @@
         "files": ["src/bijective.php"]
     },
     "autoload-dev": {
-        "Honest\\Bijective\\": "src/Test"
+        "Honest\\Bijective\\": "test/"
     }
 }
