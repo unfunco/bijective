@@ -90,4 +90,14 @@ namespace Honest\Bijective
 
         return $decoded;
     }
+
+    /**
+     * Returns a string representation of a regular expression for recognising encoded strings.
+     *
+     * @return string
+     */
+    function bijective_expression(): string
+    {
+        return '/^[a-z0-9]+$/i';
+    }
 }

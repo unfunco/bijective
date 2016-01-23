@@ -30,7 +30,8 @@ namespace Honest\Bijective\Test;
 
 use function Honest\Bijective\{
     bijective_encode,
-    bijective_decode
+    bijective_decode,
+    bijective_expression
 };
 
 /**
@@ -57,7 +58,7 @@ class BijectiveTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests the <code>Honest\Bijective\bijective_decode</code> function
+     * Tests the <code>Honest\Bijective\bijective_decode</code> function.
      *
      * @dataProvider bijectionSetProvider
      *
@@ -69,7 +70,39 @@ class BijectiveTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Returns an array of mappings between integers and strings
+     * Tests the <code>bijective_expression</code> function with recognised strings.
+     *
+     * @param string $recognisedEncodedString Recognisable encoded string.
+     *
+     * @dataProvider recognisedEncodedStringProvider
+     *
+     * @return void
+     */
+    public function testRecognisedEncodedString($recognisedEncodedString)
+    {
+        $returned = preg_match(bijective_expression(), $recognisedEncodedString);
+
+        $this->assertEquals(1, $returned);
+    }
+
+    /**
+     * Tests the <code>bijective_expression</code> function with unrecognised strings.
+     *
+     * @param string $unrecognisedEncodedString Unrecognised encoded string.
+     *
+     * @dataProvider unrecognisedEncodedStringProvider
+     *
+     * @return void
+     */
+    public function testUnrecognisedEncodedString($unrecognisedEncodedString)
+    {
+        $returned = preg_match(bijective_expression(), $unrecognisedEncodedString);
+
+        $this->assertEquals(0, $returned);
+    }
+
+    /**
+     * Returns an array of mappings between integers and strings.
      *
      * @return array
      */
@@ -85,6 +118,39 @@ class BijectiveTest extends \PHPUnit_Framework_TestCase
             [100000,   'Aa4'],
             [1000000,  'emjc'],
             [10000000, 'P7Cu'],
+        ];
+    }
+
+    /**
+     * Returns an array of recognised encoded strings.
+     *
+     * @return array
+     */
+    public function recognisedEncodedStringProvider()
+    {
+        return [
+            ['a'],
+            ['aB'],
+            ['aB1'],
+            ['ab78'],
+            ['82727'],
+            ['2837a9'],
+        ];
+    }
+
+    /**
+     * Returns an array of unrecognised encoded strings.
+     *
+     * @return array
+     */
+    public function unrecognisedEncodedStringProvider()
+    {
+        return [
+            ['!'],
+            ['a!'],
+            ['9@£'],
+            ['udf^'],
+            ['#0123'],
         ];
     }
 }
