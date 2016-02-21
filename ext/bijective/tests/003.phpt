@@ -5,13 +5,11 @@ Test the bijective_expression function with recognised encoded strings
 --FILE--
 <?php
 
-use function Honest\Bijective\bijective_expression;
-
 $recognisedEncodedStrings = ['a', 'aB', 'aB1', 'ab78', '82727', '2837a9'];
 
 foreach ($recognisedEncodedStrings as $recognisedEncodedString) {
   $returned = preg_match(bijective_expression(), $recognisedEncodedString);
-  var_dump(0 === $returned);
+  var_dump(1 === $returned);
 }
 
 ?>

@@ -22,7 +22,7 @@
  * IN THE SOFTWARE.
  */
 
-#ifdef HAVE_CONFIG
+#ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
@@ -45,8 +45,8 @@ ZEND_END_ARG_INFO()
  * Each function must have an entry in bijective_functions[].
  */
 static const zend_function_entry bijective_functions[] = {
-        PHP_FE(bijective_encode, arginfo_bijective_encode)
-        PHP_FE(bijective_decode, arginfo_bijective_decode)
+        PHP_FE(bijective_encode,     arginfo_bijective_encode)
+        PHP_FE(bijective_decode,     arginfo_bijective_decode)
         PHP_FE(bijective_expression, arginfo_bijective_expression)
         PHP_FE_END
 };
@@ -68,7 +68,7 @@ zend_module_entry bijective_module_entry = {
 };
 /* }}} */
 
-#ifdef COMPILE_DL_TYPE
+#ifdef COMPILE_DL_BIJECTIVE
 ZEND_GET_MODULE(bijective)
 #endif
 
