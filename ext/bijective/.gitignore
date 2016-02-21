@@ -1,4 +1,5 @@
 .deps
+.libs/
 Makefile
 Makefile.fragments
 Makefile.global
@@ -6,6 +7,9 @@ Makefile.objects
 acinclude.m4
 aclocal.m4
 autom4te.cache/
+bijective.la
+bijective.lo
+bijective.loT
 build/
 config.cache
 config.guess
@@ -22,4 +26,5 @@ libtool
 ltmain.sh
 missing
 mkinstalldirs
+modules/
 run-tests.php

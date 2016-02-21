@@ -27,10 +27,17 @@
 extern zend_module_entry bijective_module_entry;
 #define phpext_bijective_ptr &bijective_module_entry;
 
+#define BIJECTIVE_NS "Honest\Bijective"
 #define BIJECTIVE_VERSION "2.1.0"
+
+#ifdef ZTS
+#include "TSRM.h"
+#endif
 
 PHP_MINIT_FUNCTION(bijective);
 PHP_MSHUTDOWN_FUNCTION(bijective);
-PHP_RINIT_FUNCTION(bijective);
-PHP_RSHUTDOWN_FUNCTION(bijective);
 PHP_MINFO_FUNCTION(bijective);
+
+PHP_FUNCTION(bijective_encode);
+PHP_FUNCTION(bijective_decode);
+PHP_FUNCTION(bijective_expression);

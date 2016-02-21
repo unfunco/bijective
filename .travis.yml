@@ -23,4 +23,3 @@ script:
   - if [ "$BIJECTIVE_EXT" == "yes" ]; then yes n | make test | tee output ; grep -E 'Tests failed +. +0' output; fi
   - cd ../..
   - phpunit
-
