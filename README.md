@@ -2,6 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/honestempire/bijective.png?branch=master)](http://travis-ci.org/honestempire/bijective)
 [![Code Climate](https://codeclimate.com/github/honestempire/bijective.png)](https://codeclimate.com/github/honestempire/bijective)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/honestempire/bijective/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/honestempire/bijective/?branch=master)
 
 Bijective is a library that can compute pairings between alphanumeric strings,
 and integers. Every integer can be mapped to an alphanumeric string, and every
