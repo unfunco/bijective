@@ -1,3 +1,4 @@
 CMakeLists.txt
 composer.lock
+/ext/bijective/output
 /vendor/
