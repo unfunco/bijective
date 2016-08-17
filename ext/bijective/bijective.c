@@ -132,6 +132,18 @@ PHP_FUNCTION(bijective_decode)
                 Z_PARAM_STR(input)
         ZEND_PARSE_PARAMETERS_END();
 #endif
+
+        zend_long decoded = 0;
+        size_t len = ZSTR_LEN(input), i, pos;
+        char *chr;
+
+        for (i = len; i--;) {
+                chr = strchr(elements, ZSTR_VAL(input)[i]);
+                pos = (int) (chr - elements);
+                decoded = pos * (int) pow((double) BIJECTIVE_ELEMENTS_COUNT, len - i - 1) + decoded;
+        }
+
+        RETURN_LONG(decoded);
 }
 /* }}} */
 
