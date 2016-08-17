@@ -29,6 +29,27 @@
 #include "php.h"
 #include "ext/standard/info.h"
 #include "php_bijective.h"
+#include "ext/standard/php_smart_string.h"
+
+static const char elements[] =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+#define BIJECTIVE_ELEMENTS_COUNT 62
+
+void bijective_reverse(char *s)
+{
+        char *r = s;
+
+        while (r && *r) {
+                ++r;
+        }
+
+        for (--r; s < r; ++s, --r) {
+                *s = *s ^ *r;
+                *r = *s ^ *r;
+                *s = *s ^ *r;
+        }
+}
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_bijective_encode, 0, 0, 1)
         ZEND_ARG_INFO(0, input)
@@ -114,6 +135,20 @@ PHP_FUNCTION(bijective_encode)
                 Z_PARAM_LONG(input)
         ZEND_PARSE_PARAMETERS_END();
 #endif
+
+        smart_string encoded = {};
+        uint8_t modulus;
+
+        do {
+                modulus = input % BIJECTIVE_ELEMENTS_COUNT;
+                smart_string_appendc(&encoded, elements[modulus]);
+                input = (input - modulus) / BIJECTIVE_ELEMENTS_COUNT;
+        } while (input > 0);
+
+        smart_string_0(&encoded);
+        bijective_reverse(encoded.c);
+        RETVAL_STRING(encoded.c);
+        smart_string_free(&encoded);
 }
 /* }}} */
 
