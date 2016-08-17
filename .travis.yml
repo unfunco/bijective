@@ -1,10 +1,26 @@
 language: php
 
+env:
+  matrix:
+    - BIJECTIVE_EXT=no
+    - BIJECTIVE_EXT=yes
+  global:
+    - REPORT_EXIT_STATUS=1
+
 php:
   - 7.0
+  - 7.1
 
 before_script:
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-  - composer install --dev --prefer-source --ignore-platform-reqs
+  - composer self-update
+  - COMPOSER_ROOT_VERSION=dev-master composer dump-autoload
+  - if [ "$BIJECTIVE_EXT" == "yes" ]; then sh -c "cd ext/bijective && phpize && ./configure && make && sudo make install"; fi
+  - if [ "$BIJECTIVE_EXT" == "yes" ]; then echo "extension=bijective.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`; fi
 
-script: ./vendor/bin/phpunit
+
+script:
+  - cd ext/bijective
+  - if [ "$BIJECTIVE_EXT" == "yes" ]; then yes n | make test | tee output ; grep -E 'Tests failed +. +0' output; fi
+  - cd ../..
+  - phpunit
