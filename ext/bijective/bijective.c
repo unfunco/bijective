@@ -40,7 +40,7 @@ void bijective_reverse(char *s)
 {
         char *r = s;
 
-        while (r && *r) {
+        while (*r) {
                 ++r;
         }
 
