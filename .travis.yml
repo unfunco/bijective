@@ -18,9 +18,13 @@ before_script:
   - if [ "$BIJECTIVE_EXT" == "yes" ]; then sh -c "cd ext/bijective && phpize && ./configure && make && sudo make install"; fi
   - if [ "$BIJECTIVE_EXT" == "yes" ]; then echo "extension=bijective.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`; fi
 
-
 script:
   - cd ext/bijective
   - if [ "$BIJECTIVE_EXT" == "yes" ]; then yes n | make test | tee output ; grep -E 'Tests failed +. +0' output; fi
   - cd ../..
   - phpunit
+
+notifications:
+  email:
+    recipients:
+      - daniel@honestempire.com
