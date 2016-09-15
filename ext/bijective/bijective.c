@@ -126,15 +126,9 @@ PHP_FUNCTION(bijective_encode)
 {
         zend_long input;
 
-#ifndef FAST_ZPP
-        if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "l", &input) == FAILURE) {
-                return;
-        }
-#else
         ZEND_PARSE_PARAMETERS_START(1, 1)
                 Z_PARAM_LONG(input)
         ZEND_PARSE_PARAMETERS_END();
-#endif
 
         smart_string encoded = {};
         uint8_t modulus;
@@ -158,15 +152,9 @@ PHP_FUNCTION(bijective_decode)
 {
         zend_string *input;
 
-#ifndef FAST_ZPP
-        if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "S", &input) == FAILURE) {
-                return;
-        }
-#else
         ZEND_PARSE_PARAMETERS_START(1, 1)
                 Z_PARAM_STR(input)
         ZEND_PARSE_PARAMETERS_END();
-#endif
 
         zend_long decoded = 0;
         size_t len = ZSTR_LEN(input), i, pos;
@@ -186,14 +174,8 @@ PHP_FUNCTION(bijective_decode)
  * Returns a string representation of a regular expression for recognising encoded strings. */
 PHP_FUNCTION(bijective_expression)
 {
-#ifndef FAST_ZPP
-        if (zend_parse_parameters_none() == FAILURE) {
-                return;
-        }
-#else
         ZEND_PARSE_PARAMETERS_START(0, 0)
         ZEND_PARSE_PARAMETERS_END();
-#endif
 
         RETURN_STRING("/^[a-z0-9]+$/i");
 }
