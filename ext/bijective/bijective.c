@@ -32,31 +32,31 @@
 #include "ext/standard/php_smart_string.h"
 
 static const char elements[] =
-        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 #define BIJECTIVE_ELEMENTS_COUNT 62
 
 void bijective_reverse(char *s)
 {
-        char *r = s;
+	char *r = s;
 
-        while (*r) {
-                ++r;
-        }
+	while (*r) {
+        	++r;
+	}
 
-        for (--r; s < r; ++s, --r) {
-                *s = *s ^ *r;
-                *r = *s ^ *r;
-                *s = *s ^ *r;
-        }
+	for (--r; s < r; ++s, --r) {
+		*s = *s ^ *r;
+		*r = *s ^ *r;
+		*s = *s ^ *r;
+	}
 }
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_bijective_encode, 0, 0, 1)
-        ZEND_ARG_INFO(0, input)
+	ZEND_ARG_INFO(0, input)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_bijective_decode, 0, 0, 1)
-        ZEND_ARG_INFO(0, input)
+	ZEND_ARG_INFO(0, input)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO(arginfo_bijective_expression, 0)
@@ -66,38 +66,34 @@ ZEND_END_ARG_INFO()
  * Each function must have an entry in bijective_functions[].
  */
 static const zend_function_entry bijective_functions[] = {
-        PHP_FE(bijective_encode,     arginfo_bijective_encode)
-        PHP_FE(bijective_decode,     arginfo_bijective_decode)
-        PHP_FE(bijective_expression, arginfo_bijective_expression)
-        PHP_FE_END
+	PHP_FE(bijective_encode,     arginfo_bijective_encode)
+	PHP_FE(bijective_decode,     arginfo_bijective_decode)
+	PHP_FE(bijective_expression, arginfo_bijective_expression)
+	PHP_FE_END
 };
 /* }}} */
 
 /* {{{ bijective_module_entry
  */
 zend_module_entry bijective_module_entry = {
-        STANDARD_MODULE_HEADER,
-        "bijective",
-        bijective_functions,
-        PHP_MINIT(bijective),
-        PHP_MSHUTDOWN(bijective),
-        NULL,
-        NULL,
-        PHP_MINFO(bijective),
-        BIJECTIVE_VERSION,
-        STANDARD_MODULE_PROPERTIES
+	STANDARD_MODULE_HEADER,
+	"bijective",
+	bijective_functions,
+	PHP_MINIT(bijective),
+	PHP_MSHUTDOWN(bijective),
+	NULL,
+	NULL,
+	PHP_MINFO(bijective),
+	BIJECTIVE_VERSION,
+	STANDARD_MODULE_PROPERTIES
 };
 /* }}} */
-
-#ifdef COMPILE_DL_BIJECTIVE
-ZEND_GET_MODULE(bijective)
-#endif
 
 /* {{{ PHP_MINIT_FUNCTION
  */
 PHP_MINIT_FUNCTION(bijective)
 {
-        return SUCCESS;
+	return SUCCESS;
 }
 /* }}} */
 
@@ -105,7 +101,7 @@ PHP_MINIT_FUNCTION(bijective)
  */
 PHP_MSHUTDOWN_FUNCTION(bijective)
 {
-        return SUCCESS;
+	return SUCCESS;
 }
 /* }}} */
 
@@ -113,10 +109,10 @@ PHP_MSHUTDOWN_FUNCTION(bijective)
  */
 PHP_MINFO_FUNCTION(bijective)
 {
-        php_info_print_table_start();
-        php_info_print_table_header(2, "Bijective functions", "enabled");
-        php_info_print_table_row(2, "Version", BIJECTIVE_VERSION);
-        php_info_print_table_end();
+	php_info_print_table_start();
+	php_info_print_table_header(2, "Bijective functions", "enabled");
+	php_info_print_table_row(2, "Version", BIJECTIVE_VERSION);
+	php_info_print_table_end();
 }
 /* }}} */
 
@@ -124,25 +120,25 @@ PHP_MINFO_FUNCTION(bijective)
  * Encodes an integer into a corresponding string. */
 PHP_FUNCTION(bijective_encode)
 {
-        zend_long input;
+	zend_long input;
 
-        ZEND_PARSE_PARAMETERS_START(1, 1)
-                Z_PARAM_LONG(input)
-        ZEND_PARSE_PARAMETERS_END();
+	ZEND_PARSE_PARAMETERS_START(1, 1)
+		Z_PARAM_LONG(input)
+	ZEND_PARSE_PARAMETERS_END();
 
-        smart_string encoded = {};
-        uint8_t modulus;
+	smart_string encoded = {};
+	uint8_t modulus;
 
-        do {
-                modulus = input % BIJECTIVE_ELEMENTS_COUNT;
-                smart_string_appendc(&encoded, elements[modulus]);
-                input = (input - modulus) / BIJECTIVE_ELEMENTS_COUNT;
-        } while (input > 0);
+	do {
+		modulus = input % BIJECTIVE_ELEMENTS_COUNT;
+		smart_string_appendc(&encoded, elements[modulus]);
+		input = (input - modulus) / BIJECTIVE_ELEMENTS_COUNT;
+	} while (input > 0);
 
-        smart_string_0(&encoded);
-        bijective_reverse(encoded.c);
-        RETVAL_STRING(encoded.c);
-        smart_string_free(&encoded);
+	smart_string_0(&encoded);
+	bijective_reverse(encoded.c);
+	RETVAL_STRING(encoded.c);
+	smart_string_free(&encoded);
 }
 /* }}} */
 
@@ -150,23 +146,23 @@ PHP_FUNCTION(bijective_encode)
  * Decodes a string into a corresponding integer. */
 PHP_FUNCTION(bijective_decode)
 {
-        zend_string *input;
+	zend_string *input;
 
-        ZEND_PARSE_PARAMETERS_START(1, 1)
-                Z_PARAM_STR(input)
-        ZEND_PARSE_PARAMETERS_END();
+	ZEND_PARSE_PARAMETERS_START(1, 1)
+		Z_PARAM_STR(input)
+	ZEND_PARSE_PARAMETERS_END();
 
-        zend_long decoded = 0;
-        size_t len = ZSTR_LEN(input), i, pos;
-        char *chr;
+	zend_long decoded = 0;
+	size_t len = ZSTR_LEN(input), i, pos;
+	char *chr;
 
-        for (i = len; i--;) {
-                chr = strchr(elements, ZSTR_VAL(input)[i]);
-                pos = (int) (chr - elements);
-                decoded = pos * (int) pow((double) BIJECTIVE_ELEMENTS_COUNT, len - i - 1) + decoded;
-        }
+	for (i = len; i--;) {
+		chr = strchr(elements, ZSTR_VAL(input)[i]);
+		pos = (int) (chr - elements);
+		decoded = pos * (int) pow((double) BIJECTIVE_ELEMENTS_COUNT, len - i - 1) + decoded;
+	}
 
-        RETURN_LONG(decoded);
+	RETURN_LONG(decoded);
 }
 /* }}} */
 
@@ -174,9 +170,9 @@ PHP_FUNCTION(bijective_decode)
  * Returns a string representation of a regular expression for recognising encoded strings. */
 PHP_FUNCTION(bijective_expression)
 {
-        ZEND_PARSE_PARAMETERS_START(0, 0)
-        ZEND_PARSE_PARAMETERS_END();
+	ZEND_PARSE_PARAMETERS_START(0, 0)
+	ZEND_PARSE_PARAMETERS_END();
 
-        RETURN_STRING("/^[a-z0-9]+$/i");
+	RETURN_STRING("/^[a-z0-9]+$/i");
 }
 /* }}} */
