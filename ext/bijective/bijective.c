@@ -89,6 +89,10 @@ zend_module_entry bijective_module_entry = {
 };
 /* }}} */
 
+#ifdef COMPILE_DL_BIJECTIVE
+ZEND_GET_MODULE(bijective)
+#endif
+
 /* {{{ PHP_MINIT_FUNCTION
  */
 PHP_MINIT_FUNCTION(bijective)
