@@ -1,0 +1,8 @@
+dnl $Id$
+dnl config.w32 for extension bijective
+
+ARG_ENABLE("bijective");
+
+if test "$PHP_BIJECTIVE" != "no"; then
+  PHP_NEW_EXTENSION(bijective, bijective.c, $ext_shared)
+fi
