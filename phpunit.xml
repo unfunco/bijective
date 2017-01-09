@@ -8,6 +8,10 @@
         <testsuite name="honest/bijective">
             <directory suffix="Test.php">test</directory>
         </testsuite>
+
+        <testsuite name="honest/ext-bijective">
+            <directory suffix=".phpt">ext/bijective/tests</directory>
+        </testsuite>
     </testsuites>
 
     <filter>
