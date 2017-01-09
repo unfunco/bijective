@@ -1,6 +1,6 @@
 # License
 
-Copyright © 2013 – 2016 [Honest Empire Ltd](http://www.honestempire.com)
+Copyright © 2013 [Honest Empire Ltd](http://www.honestempire.com)
 
 ## The MIT License
 
