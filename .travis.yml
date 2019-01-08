@@ -3,7 +3,7 @@ language: php
 notifications:
   email:
     recipients:
-      - daniel@honestempire.com
+      - daniel@unfun.co
 
 php:
   - 7.0

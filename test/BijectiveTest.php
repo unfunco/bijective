@@ -1,9 +1,8 @@
 <?php
 
 /*
- * Bijective
- *
- * Copyright © 2013 Honest Empire Ltd
+ * Copyright © 2013 Daniel Morris
+ * https://unfun.co
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"),
@@ -22,28 +21,20 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
- *
- * PHP version 7.0+
  */
 
-namespace Honest\Bijective\Test;
+namespace test\Bijective;
 
-use function Honest\Bijective\{
+use function Bijective\{
     bijective_encode,
     bijective_decode,
     bijective_expression
 };
 
-/**
- * Tests the bijection functions.
- *
- * @package Honest\Bijective
- * @author  Daniel Morris <daniel@honestempire.com>
- */
 class BijectiveTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Tests the `Honest\Bijective\bijective_encode` function.
+     * Tests the `Bijective\bijective_encode` function.
      *
      * @param int    $input    The input to be encoded.
      * @param string $expected The expected encoded version of `$input`.
@@ -58,7 +49,7 @@ class BijectiveTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests the <code>Honest\Bijective\bijective_decode</code> function.
+     * Tests the <code>Bijective\bijective_decode</code> function.
      *
      * @dataProvider bijectionSetProvider
      *

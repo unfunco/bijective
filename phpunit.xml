@@ -5,11 +5,11 @@
          bootstrap="vendor/autoload.php"
          colors="true">
     <testsuites>
-        <testsuite name="honest/bijective">
+        <testsuite name="bijective">
             <directory suffix="Test.php">test</directory>
         </testsuite>
 
-        <testsuite name="honest/ext-bijective">
+        <testsuite name="ext-bijective">
             <directory suffix=".phpt">ext/bijective/tests</directory>
         </testsuite>
     </testsuites>

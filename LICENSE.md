@@ -1,6 +1,6 @@
 # License
 
-Copyright © 2013 [Honest Empire Ltd](http://www.honestempire.com)
+Copyright © 2013 [Daniel Morris](https://unfun.co)
 
 ## The MIT License
 

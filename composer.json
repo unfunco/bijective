@@ -1,31 +1,32 @@
 {
-    "name": "honest/bijective",
-    "description": "Bijective is a class that can compute pairings between alphanumeric strings, and integers. Every integer can be mapped to an alphanumeric string, and every alphanumeric string can be mapped back to an integer with no unpaired permutations.",
-    "type": "Library",
-    "homepage": "https://github.com/honestempire/bijective",
+    "name": "unfunco/bijective",
+    "description": "Bijective is a library that can compute pairings between alphanumeric strings, and integers. Every integer can be mapped to an alphanumeric string, and every alphanumeric string can be mapped back to an integer with no unpaired permutations.",
+    "homepage": "https://github.com/unfunco/bijective",
     "keywords": ["bijective", "bijection"],
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
             "name": "Daniel Morris",
-            "email": "daniel@honestempire.com",
-            "homepage": "https://github.com/unfunco",
-            "role": "Programmer"
+            "homepage": "https://unfun.co",
+            "email": "daniel@unfun.co"
         }
     ],
-    "version": "2.2.0",
-    "require": {
-        "php": ">=7.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^5.5"
-    },
     "autoload": {
         "files": ["src/bijective.php"]
     },
     "autoload-dev": {
         "psr-4": {
-            "Honest\\Bijective\\": "test/"
+            "test\\Bijective\\": "test/"
         }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.5"
     }
 }

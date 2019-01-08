@@ -1,7 +1,6 @@
 # Bijective
 
-[![Build Status](https://secure.travis-ci.org/honestempire/bijective.svg?branch=master)](http://travis-ci.org/honestempire/bijective)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/honestempire/bijective/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/honestempire/bijective/?branch=master)
+[![Build Status](https://secure.travis-ci.org/unfunco/bijective.svg?branch=master)](http://travis-ci.org/unfunco/bijective)
 
 Bijective is a library that can compute pairings between alphanumeric strings,
 and integers. Every integer can be mapped to an alphanumeric string, and every
@@ -11,7 +10,7 @@ permutations.
 ## Extension
 
 ```bash
-$ git clone git@github.com:honestempire/bijective.git
+$ git clone git@github.com:unfunco/bijective.git
 $ cd bijective/ext/bijective
 $ phpize
 $ ./configure
@@ -21,5 +20,5 @@ $ make install
 
 ## License
 
-Copyright © 2013 [Honest Empire Ltd](http://www.honestempire.com)  
+Copyright © 2013 [Daniel Morris](https://unfun.co)  
 Licensed under the terms of [The MIT License](LICENSE.md).
