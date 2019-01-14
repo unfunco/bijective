@@ -25,7 +25,9 @@ use function Bijective\{
     bijective_expression
 };
 
-class BijectiveTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class BijectiveTest extends TestCase
 {
     /**
      * Tests the `Bijective\bijective_encode` function.
