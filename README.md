@@ -21,4 +21,4 @@ $ make install
 ## License
 
 Copyright © 2013 [Daniel Morris](https://unfun.co)  
-Licensed under the terms of [The MIT License](LICENSE.md).
+Made available under the terms of the [Apache License, Version 2.0](LICENSE.md).

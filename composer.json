@@ -3,7 +3,7 @@
     "description": "Bijective is a library that can compute pairings between alphanumeric strings, and integers. Every integer can be mapped to an alphanumeric string, and every alphanumeric string can be mapped back to an integer with no unpaired permutations.",
     "homepage": "https://github.com/unfunco/bijective",
     "keywords": ["bijective", "bijection"],
-    "license": "MIT",
+    "license": "Apache-2.0",
     "type": "library",
     "authors": [
         {
