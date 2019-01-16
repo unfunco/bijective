@@ -52,16 +52,12 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_bijective_decode, 0, 0, 1)
 	ZEND_ARG_INFO(0, input)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO(arginfo_bijective_expression, 0)
-ZEND_END_ARG_INFO()
-
 /* {{{ bijective_functions[]
  * Each function must have an entry in bijective_functions[].
  */
 static const zend_function_entry bijective_functions[] = {
-	PHP_FE(bijective_encode,     arginfo_bijective_encode)
-	PHP_FE(bijective_decode,     arginfo_bijective_decode)
-	PHP_FE(bijective_expression, arginfo_bijective_expression)
+	PHP_FE(bijective_encode, arginfo_bijective_encode)
+	PHP_FE(bijective_decode, arginfo_bijective_decode)
 	PHP_FE_END
 };
 /* }}} */
@@ -160,16 +156,5 @@ PHP_FUNCTION(bijective_decode)
 	}
 
 	RETURN_LONG(decoded);
-}
-/* }}} */
-
-/* {{{ proto string bijective_expression(void)
- * Returns a string representation of a regular expression for recognising encoded strings. */
-PHP_FUNCTION(bijective_expression)
-{
-	ZEND_PARSE_PARAMETERS_START(0, 0)
-	ZEND_PARSE_PARAMETERS_END();
-
-	RETURN_STRING("/^[a-z0-9]+$/i");
 }
 /* }}} */

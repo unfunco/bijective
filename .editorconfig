@@ -14,3 +14,6 @@ trim_trailing_whitespace = false
 [*.{c,h}]
 indent_size = 8
 indent_style = tab
+
+[*.{yaml,yml}]
+indent_size = 2

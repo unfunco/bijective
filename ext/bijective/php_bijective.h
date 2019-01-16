@@ -32,4 +32,3 @@ PHP_MINFO_FUNCTION(bijective);
 
 PHP_FUNCTION(bijective_encode);
 PHP_FUNCTION(bijective_decode);
-PHP_FUNCTION(bijective_expression);

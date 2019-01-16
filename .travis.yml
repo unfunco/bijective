@@ -20,6 +20,6 @@ before_script:
   - echo "extension=bijective.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 
 script:
-  - vendor/bin/phpunit
+  - composer test
 
 sudo: false

@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpDocSignatureInspection */
 
 /*
  * Copyright © 2013 Daniel Morris
@@ -17,83 +17,33 @@
  * limitations under the License.
  */
 
+declare(strict_types=1);
+
 namespace test\Bijective;
 
-use function Bijective\{
-    bijective_encode,
-    bijective_decode,
-    bijective_expression
-};
+use function Bijective\bijective_encode;
+use function Bijective\bijective_decode;
 
 use PHPUnit\Framework\TestCase;
 
-class BijectiveTest extends TestCase
+final class BijectiveTest extends TestCase
 {
-    /**
-     * Tests the `Bijective\bijective_encode` function.
-     *
-     * @param int    $input    The input to be encoded.
-     * @param string $expected The expected encoded version of `$input`.
-     *
-     * @dataProvider bijectionSetProvider
-     *
-     * @return void
-     */
-    public function testBijectiveEncode($input, $expected)
+    /** @dataProvider bijectionSetProvider */
+    public function testBijectiveEncode(int $input, string $expected): void
     {
         $this->assertEquals($expected, bijective_encode($input));
     }
 
-    /**
-     * Tests the <code>Bijective\bijective_decode</code> function.
-     *
-     * @dataProvider bijectionSetProvider
-     *
-     * @return void
-     */
-    public function testBijectiveDecode($expected, $input)
+    /** @dataProvider bijectionSetProvider */
+    public function testBijectiveDecode(int $expected, string $input): void
     {
         $this->assertEquals($expected, bijective_decode($input));
     }
 
     /**
-     * Tests the <code>bijective_expression</code> function with recognised strings.
-     *
-     * @param string $recognisedEncodedString Recognisable encoded string.
-     *
-     * @dataProvider recognisedEncodedStringProvider
-     *
-     * @return void
+     * Returns an array of mappings for testing.
      */
-    public function testRecognisedEncodedString($recognisedEncodedString)
-    {
-        $returned = preg_match(bijective_expression(), $recognisedEncodedString);
-
-        $this->assertEquals(1, $returned);
-    }
-
-    /**
-     * Tests the <code>bijective_expression</code> function with unrecognised strings.
-     *
-     * @param string $unrecognisedEncodedString Unrecognised encoded string.
-     *
-     * @dataProvider unrecognisedEncodedStringProvider
-     *
-     * @return void
-     */
-    public function testUnrecognisedEncodedString($unrecognisedEncodedString)
-    {
-        $returned = preg_match(bijective_expression(), $unrecognisedEncodedString);
-
-        $this->assertEquals(0, $returned);
-    }
-
-    /**
-     * Returns an array of mappings between integers and strings.
-     *
-     * @return array
-     */
-    public function bijectionSetProvider()
+    public function bijectionSetProvider(): array
     {
         return [
             [0,        'a'],
@@ -105,39 +55,6 @@ class BijectiveTest extends TestCase
             [100000,   'Aa4'],
             [1000000,  'emjc'],
             [10000000, 'P7Cu'],
-        ];
-    }
-
-    /**
-     * Returns an array of recognised encoded strings.
-     *
-     * @return array
-     */
-    public function recognisedEncodedStringProvider()
-    {
-        return [
-            ['a'],
-            ['aB'],
-            ['aB1'],
-            ['ab78'],
-            ['82727'],
-            ['2837a9'],
-        ];
-    }
-
-    /**
-     * Returns an array of unrecognised encoded strings.
-     *
-     * @return array
-     */
-    public function unrecognisedEncodedStringProvider()
-    {
-        return [
-            ['!'],
-            ['a!'],
-            ['9@£'],
-            ['udf^'],
-            ['#0123'],
         ];
     }
 }
